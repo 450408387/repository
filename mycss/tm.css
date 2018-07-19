@@ -1,0 +1,191 @@
+/*header开始*/
+#header{
+    height: 32px;
+    background: #f2f2f2;
+    font-size: 12px;
+    line-height: 32px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+#login-info{
+    float: left;
+}
+#login-info .register{
+    padding: 0;
+}
+
+
+#quick-menu{
+    float: right;
+}
+
+#quick-menu .menu{
+    float: left;
+    position: relative;
+    padding: 0 14px;
+    height: 33px;
+}
+
+#header .triangle:hover > a{
+    text-decoration: underline;
+    color: #FF0036;
+}
+
+#quick-menu .submenu a:hover{
+    text-decoration: underline;
+}
+
+#header a,#login-info span{
+    color: #999
+}
+
+#header a:hover{
+    color: #FF0036;
+}
+
+#header .triangle::after{
+    content: '';
+    width: 0;
+    border-width: 3px;
+    border-style: solid;
+    border-top-color: #bbb;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    position: absolute;
+    right: 2px;
+    top: 50%;
+    margin-top: -2px;
+    -webkit-transition: none;
+    -moz-transition: none;
+    -ms-transition: none;
+    -o-transition: none;
+    transition: none;
+    transform-origin: 3px 1.5px;
+}
+
+#header .triangle:hover{
+    background-color: #fff;
+    border-color: #e5e5e5;
+    cursor: pointer;
+    display: block;
+}
+
+#header .icon-gouwuchekong{
+    font-size: 12px;
+    color: #FF0036;
+}
+
+#header .triangle{
+    border-style: solid;
+    border-color: transparent;
+    border-width: 0 1px 0 1px;
+}
+
+
+#header .triangle:hover::after{
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+    -webkit-transition: transform .5s ease;
+    -moz-transition: transform .5s ease;
+    -ms-transition: transform .5s ease;
+    -o-transition: transform .5s ease;
+    transition: transform .5s ease;
+}
+
+#header .triangle:hover .submenu{
+    display: block;
+}
+
+#quick-menu .submenu{
+    position: absolute;
+    top: 32px;
+    left: -1px;
+    width: 74px;
+    border-style: solid;
+    border-color: #e5e5e5;
+    border-width: 0 1px 1px 1px;
+    padding: 0 14px;
+    display: none;
+    background-color: #fff;
+}
+
+#quick-menu .sc{
+    position: absolute;
+    top: 32px;
+    left: -1px;
+    border-style: solid;
+    border-color: #e5e5e5;
+    border-width: 0 1px 1px 1px;
+    padding:0 14px;
+    width: 78px;
+    display: none;
+}
+
+#quick-menu .sc a:hover{
+    text-decoration: underline;
+}
+
+#quick-menu .triangle:hover .sc{
+    display: block;
+}
+
+#quick-menu .split{
+    width: 1px;
+    height: 14px;
+    background: #ccc;
+    padding: 0;
+    margin-top: 9px;
+}
+
+#quick-menu .qr-code{
+    width: 175px;
+    height: 227px;
+    border: 1px solid #e5e5e5;
+    position: absolute;
+    top: 28px;
+    left: -58px;
+    background-color: #fff;
+    box-shadow: 0 0 5px #aaa;
+    display: none;
+}
+
+#quick-menu .qr-code::after{
+    content: '';
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent #fff transparent;
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: -10px;
+    left: 85px;
+}
+
+#quick-menu .mobile:hover .qr-code{
+    display: block;
+}
+/*header结束*/
+/*logo-search开始*/
+#logo,#search{
+    float: left;
+}
+
+#logo img{
+    width: 240px;
+}
+
+#search .search-ipt{
+    width: 483px;
+    height: 26px;
+    border: none;
+}
+
+#search .search-box{
+    border: 2px solid #FF0036;
+}
+
+/*logo-search结束*/
