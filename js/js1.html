@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*1．随机生成两个小数给变量x.y，然后显示这两个数中的最大值。
+    （提示：语句“var x=Math.random();”可为变量生成一个随机小数：另外，使用条件运算符‘'?:")
+    * */
+    function getMax(x,y) {
+        return x > y ? x : y;
+    }
+    var x=Math.random();
+    var y=Math.random();
+    var max=getMax(x,y);
+    document.write('当前随机数是:x='+ x+',y='+ y+',最大值是:'+ max+'')
+
+
+   /* 2．如果某年的年份值是4的倍数并且不是100的倍数，或者该年份值是400的倍数，那么这一年就是闰年。请编制一个页面，
+   该页面显示当天是否处于闰年。提示：使用以下语句，可使变量year的值就是当天所属的年份值。var today = new Date();   
+//获取当天日期var year = today.getFullYear();   //获取当天年份*/
+   
+   function getLeapYear(year) {
+       if(year % 4 == 0 && year % 100 != 0 || year % 400 ==0){
+           return true;
+       }
+       return false;
+   };
+    var now = new Date();
+    console.log(getLeapYear(now.getFullYear()));
+
+</script>
+</body>
+</html>
