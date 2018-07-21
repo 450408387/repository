@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*7.有一个三位数x，被4 除余2，被7 除余3，被9 除余5，请求出这个数。*/
+var x;
+for(x=100;x<999;x++){
+    if(x%4==2 && x%7==3 && x%9==5){
+        console.log(x);
+    }
+}
+
+/*8.求所有满足条件的四位数ABCD，它是13的倍数，且第 3 位数加上第 2 位数等于第 4 位数（即：A=B+C）。
+（提示：对于四位数的整数x，通过Math.floor(x/1000)可求出第4位的数字，其他位数的提取也类似） */
+
+var i;
+for(i=1000;i<9999;i++){
+    A=Math.floor(i/1000);
+    B=Math.floor((i-A*1000)/100);
+    C=Math.floor((i-A*1000-B*100)/10);
+    if ( i % 13 == 0 && A==B+C){
+        console.log(i);
+    }
+}
+
+</script>
+</body>
+</html>

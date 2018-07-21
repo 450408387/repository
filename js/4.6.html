@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*6.在页面上输出如下图案。其中，每行的星号"*"之间有一个空格间隔。*/
+
+    function print(n) {
+        for(var i=1;i<=n;i++){
+            for(k=1;k<=n-i;k++){
+                document.write('&nbsp');
+            }
+            for(var j=1;j<=i;j++){
+                document.write('*&nbsp;')
+            }
+            document.write('<br>');
+        }
+    }
+    print(5);
+</script>
+</body>
+</html>
