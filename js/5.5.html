@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*5.编写一个非递归函数factorial(n)，计算12!-10!的结果。*/
+
+    function fac(num) {
+        var a=1;
+        for(var i=1;i<=num;i++){
+            a=a*i;
+        }
+        return a;
+    }
+
+    console.log(fac(12)-fac(10));
+</script>
+</body>
+</html>
