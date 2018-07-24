@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选项卡</title>
+
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            li{
+                list-style: none;
+                width: 120px;
+                height: 30px;
+                float: left;
+                text-align: center;
+                line-height:30px;
+                margin-right: 5px;
+                background-color: #ccc;
+                cursor: pointer;
+            }
+
+            #menu{
+                border-bottom: 1px solid;
+            }
+
+            .clearfix::after{
+                content: '';
+                display: block;
+                clear:both;
+            }
+
+            #container{
+                width: 400px;
+                height: 300px;
+                border: 1px solid;
+                margin:100px auto;
+            }
+
+            #menu .menu-li{
+                color: #fff;
+                background-color: #000000;
+            }
+
+            #content div{
+                display: none;
+            }
+
+            #content .content-div{
+                display: block;
+            }
+
+
+
+        </style>
+</head>
+<body>
+<div id="container">
+    <div>
+        <ul id="menu" class="clearfix">
+            <li class="menu-li">html</li>
+            <li>css</li>
+            <li>js</li>
+        </ul>
+    </div>
+
+    <div id="content">
+        <div class="content-div">01</div>
+        <div>02</div>
+        <div>03</div>
+    </div>
+</div>
+
+
+<script>
+    var oMenu=document.getElementById('menu');
+    var aLi=oMenu.getElementsByTagName('li');
+    var oContent=document.getElementById('content');
+    var aDiv=oContent.getElementsByTagName('div');
+
+
+ for(var j=0;j<aLi.length;j++){
+     aLi[j].index=j;
+     aLi[j].onclick=function () {
+         for(var i=0;i<aLi.length;i++){
+             aLi[i].className='';
+             aDiv[i].className='';
+         }
+         this.className='menu-li';
+         aDiv[this.index].className='content-div';
+     }
+ }
+</script>
+</body>
+</html>

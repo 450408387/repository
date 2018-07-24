@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>轮播图</title>
+
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        #nav li{
+            list-style: none;
+            width: 20px;
+            height: 20px;
+            float: left;
+            text-align: center;
+            line-height: 20px;
+            margin-right: 5px;
+            background-color: #000000;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        #container{
+            width: 520px;
+            height: 280px;
+            position: relative;
+            margin: 100px auto;
+        }
+
+        #nav{
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+
+        #span span{
+            cursor: pointer;
+            background-color: #000;
+            color: #fff;
+            width: 20px;
+            height: 20px;
+        }
+
+        #span{
+            position: absolute;
+            left: 10px;
+            bottom: 10px;
+        }
+
+        #imgs img{
+            display: none;
+        }
+
+        #imgs .clear{
+            display: block;
+        }
+
+        #nav .selected{
+            background-color: orange;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div id="container">
+    <div id="imgs">
+        <img src="1.jpg" alt="" class="clear">
+        <img src="2.jpg" alt="">
+        <img src="3.jpg" alt="">
+        <img src="4.jpg" alt="">
+    </div>
+    <ul id="nav">
+        <li class="selected">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <div id="span">
+        <span id="prev"><</span>
+        <span id="next">></span>
+    </div>
+</div>
+
+<script>
+
+    var oImgs=document.getElementById('imgs');
+    var aClear=oImgs.getElementsByTagName('clear');
+    var oNav=document.getElementById('nav');
+    var aLi=oNav.getElementsByTagName('li');
+
+    for(var i=0;i<aLi.length;i++){
+        aLi[i].index=i;
+        aLi[i].onmouseover=function () {
+            for(var j=0;j<aLi.length;j++){
+                aLi[j].className='';
+                aClear[j].className='';
+            }
+            this.className='clear';
+        }
+    }
+</script>
+
+</body>
+</html>
