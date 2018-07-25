@@ -3,14 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>轮播图</title>
-
     <style>
-
         *{
             margin: 0;
             padding: 0;
         }
-
         #nav li{
             list-style: none;
             width: 20px;
@@ -23,20 +20,17 @@
             color: #fff;
             cursor: pointer;
         }
-
         #container{
             width: 520px;
             height: 280px;
             position: relative;
             margin: 100px auto;
         }
-
         #nav{
             position: absolute;
             right: 10px;
             bottom: 10px;
         }
-
         #span span{
             cursor: pointer;
             background-color: #000;
@@ -44,13 +38,11 @@
             width: 20px;
             height: 20px;
         }
-
         #span{
             position: absolute;
             left: 10px;
             bottom: 10px;
         }
-
         #imgs img{
             display: none;
         }
@@ -58,17 +50,12 @@
         #imgs .clear{
             display: block;
         }
-
         #nav .selected{
             background-color: orange;
         }
-
     </style>
-
 </head>
-
 <body>
-
 <div id="container">
     <div id="imgs">
         <img src="1.jpg" alt="" class="clear">
@@ -87,26 +74,69 @@
         <span id="next">></span>
     </div>
 </div>
-
 <script>
-
     var oImgs=document.getElementById('imgs');
-    var aClear=oImgs.getElementsByTagName('clear');
+    var aClear=oImgs.getElementsByTagName('img');
     var oNav=document.getElementById('nav');
     var aLi=oNav.getElementsByTagName('li');
+    var oPrev=document.getElementById('prev');
+    var oNext=document.getElementById('next');
+    var oContainer = document.getElementById('container');
+    var iNowIndex=0;
+    var timer;
 
     for(var i=0;i<aLi.length;i++){
         aLi[i].index=i;
         aLi[i].onmouseover=function () {
+            iNowIndex = this.index;
             for(var j=0;j<aLi.length;j++){
                 aLi[j].className='';
                 aClear[j].className='';
             }
-            this.className='clear';
-            
+            this.className='selected';
+            aClear[iNowIndex].className='clear';
         }
     }
-</script>
 
+    oPrev.onclick = oNext.onclick = function () {
+        if (this === oPrev) {
+            iNowIndex--;
+            if (iNowIndex == -1) {
+                iNowIndex = aLi.length - 1;
+            }
+        } else {
+            iNowIndex++;
+            if (iNowIndex === aLi.length) {
+                iNowIndex = 0;
+            }
+        }
+        for (var i = 0; i < aLi.length; i++) {
+                for (var j = 0; j < aLi.length; j++) {
+                    aLi[j].className = '';
+                    aClear[j].className = '';
+                }
+                aLi[iNowIndex].className = 'selected';
+                aClear[iNowIndex].className = 'clear';
+
+        }
+    }
+
+        oPrev.onselectstart=oNext.onselectstart=function () {
+            return false;
+        }
+        oContainer.onmouseover=function () {
+            clearInterval(timer);
+        }
+        oContainer.onmouseout=function () {
+            timer=setInterval(function () {
+                oNext.onclick();
+            },1000);
+        }
+
+       timer=setInterval(function () {
+            oNext.onclick();
+        },1000);
+
+</script>
 </body>
 </html>

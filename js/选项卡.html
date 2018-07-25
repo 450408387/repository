@@ -80,12 +80,12 @@
     var aDiv=oContent.getElementsByTagName('div');
 
 
- for(var j=0;j<aLi.length;j++){
-     aLi[j].index=j;
-     aLi[j].onclick=function () {
-         for(var i=0;i<aLi.length;i++){
-             aLi[i].className='';
-             aDiv[i].className='';
+ for(var i=0;i<aLi.length;i++){
+     aLi[i].index=i;
+     aLi[i].onclick=function () {
+         for(var j=0;j<aLi.length;j++){
+             aLi[j].className='';
+             aDiv[j].className='';
          }
          this.className='menu-li';
          aDiv[this.index].className='content-div';
