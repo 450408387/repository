@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2018.7.25</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+     #small,#big{
+         float: left;
+         width: 400px;
+         height: 400px;
+         position: relative;
+     }
+
+        #big{
+            overflow: hidden;
+            display: none;
+        }
+
+        #drag{
+            width: 200px;
+            height: 200px;
+            background-color: #fff;
+            opacity: .5;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+
+        #big-img{
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="small">
+    <img src="1.jpg" alt="">
+    <div id="drag"></div>
+</div>
+<div id="big">
+    <img src="2.jpg" alt="" id="big-img">
+</div>
+
+<script>
+    var oSmall=document.getElementById('small');
+    var oDrag=document.getElementById('drag');
+    
+</script>
+
+</body>
+</html>
