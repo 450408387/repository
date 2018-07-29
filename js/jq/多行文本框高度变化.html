@@ -3,8 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        #kuang{
+            height: 100px;
+            width: 200px;
+            border: 1px solid;
+        }
+    </style>
 </head>
 <body>
+<button id="big">放大</button>
+<button id="small">缩小</button>
+<br>
+<form action="" id="kuang">
+阿济格飞机开了哈哈的个沙哑而工业爱上国会大厦
+</form>
+<script src="jquery-1.12.4.js"></script>
+<script>
 
+    $(function(){
+        var $kuang = $('#kuang');
+        $('#big').on('click',(function(){
+
+           $kuang.height( $kuang.height()+ 50);
+
+        }))
+        $('#small').on('click',(function(){
+            $kuang.height( $kuang.height()- 50);
+        }));
+    });
+    // if($kuang.height<500){$kuang.height()+50;}{$kuang.height();}
+</script>
 </body>
 </html>

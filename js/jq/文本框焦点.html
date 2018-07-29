@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #wrapper{
+            border: 1px solid;
+            width: 300px;
+        }
+
+        input{
+            background-color: #f2f2f2;
+        }
+
+        .change{
+            background-color:pink;
+        }
+    </style>
+</head>
+
+<body>
+<div id="wrapper">
+    <span>个人信息表</span>
+    <br>
+    名称：<input type="text" id="name">
+    <br>
+    密码：<input type="text" id="password">
+    <br>
+    详细信息：<input type="text" id="xiangqing">
+</div>
+
+<script src="jquery-1.12.4.js"></script>
+<script>
+    $(function () {
+        $('input').focus(function () {
+            $(this).addClass('change');
+        }).blur(function () {
+            $(this).removeClass('change');
+        })
+    });
+</script>
+</body>
+</html>
