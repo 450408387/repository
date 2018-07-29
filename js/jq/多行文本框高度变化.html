@@ -29,7 +29,11 @@
 
         }))
         $('#small').on('click',(function(){
-            $kuang.height( $kuang.height()- 50);
+            if($kuang.height()<100){
+                $kuang.height;
+            }else{
+                $kuang.height( $kuang.height()- 50);
+            }
         }));
     });
     // if($kuang.height<500){$kuang.height()+50;}{$kuang.height();}

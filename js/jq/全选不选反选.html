@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+
 <body>
 
     <h2>你爱好的运动是？</h2>
@@ -12,15 +13,25 @@
     <input type="checkbox" name="hobby">排球
     <input type="checkbox" name="hobby">乒乓球
     <br>
-    <button >全选</button>
-    <button >全部选</button>
-    <button >反选</button>
+    <button id="all">全选</button>
+    <button id="no">全不选</button>
+    <button id="else">反选</button>
 
-<script src="hanshuku.js"></script>
+<script src="jquery-1.12.4.js"></script>
 <script>
     $(function () {
-        $()
-    })
+        $('#all').on('click',function () {
+            $('input[name="hobby"]').prop('checked','checked');
+        });
+        $('#no').on('click',function () {
+            $('input[name="hobby"]').removeProp('checked');
+        });
+        $('#else').on('click',function () {
+            $('input[name="hobby"]').each(function (index,elem) {
+                this.checked = !this.checked;
+            });
+        });
+    });
 </script>
 </body>
 </html>
