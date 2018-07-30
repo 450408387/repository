@@ -51,9 +51,23 @@
 </div>
 
 <script>
+    
     var oSmall=document.getElementById('small');
     var oDrag=document.getElementById('drag');
+    var oBig=document.getElementById('big');
+    var oBigimg=document.getElementById('big-img');
     
+    oSmall.onmouseover=function () {
+        oDrag.style.display='block';
+        oBig.style.display='block';
+    }
+
+    oSmall.onmouseout=function () {
+        oDrag.style.display='none';
+        oBig.style.display='none';
+    }
+
+
 </script>
 
 </body>
