@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+/*1.编写程序，根据用户输入的数值，计算其平方、平方根和自然对数。*/
+    function a(x) {
+        var a=0;
+        a=Math.pow(x,2);
+        return a;
+    }
+    function b(y) {
+        var b=0;
+        b=Math.sqrt(y);
+        return b;
+    }
+    function c(z) {
+        var c=0;
+        c=Math.log(z);
+        return c;
+    }
+    var num=window.prompt('请输入数值a：')
+    alert('平方的值为'+a(num));
+    alert('平方根的值为'+b(num));
+    alert('自然对数的值为'+c(num));
+</script>
+</body>
+</html>
