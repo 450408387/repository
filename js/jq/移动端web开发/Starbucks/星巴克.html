@@ -10,6 +10,8 @@
         margin: 0;
         padding: 0;
     }
+
+    /*左侧*/
     li{
         list-style: none;
         float: left;
@@ -31,7 +33,6 @@
         position: fixed;
         top:0;
         left:0;
-        
     }
     #content{
         text-align: center;
@@ -53,44 +54,53 @@
     #button a{
         color:green;
     }
+
+    /*右侧*/
     #right{
-        height:364px;
-        float: right;
-        width: 70%;
+        float:left;
+        margin-left:30%;
     }
     #picture-top{
-        position: relative;
+        width: 2832px;
+    }
+    #container{
+        width: 944px;
+        overflow: hidden;
     }
     #picture-top img{
-        width: 100%;
-        position: absolute;
-        top: 0;
-        right: 0;
+        float:left;
+        width:944px;
     }
     #three{
-        width: 780px;
-        height: 200px;
+        width: 930px;
+        height: 300px;
     }
-    #three .picture-middle{
-        clear: both;
-        width: 230px;
-        height: 45px;
+    .picture-middle{
+        float: left;
+    }
+    #three img{
+        width: 300px;
+        height: 300px;
+        margin-right: 10px;
+        margin-top: 10px;
     }
 
 
-
-
-
-
-
+/*响应式*/
     @media (max-width: 1025px) {
         #nav{
             width: 100%;
             height: 200px;
-            float: right;
+            float: left;
             top:0;
             left:0;
             position: relative;
+        }
+        #right{
+            margin-left:0;
+        }
+        #picture-top img{
+            width: 33.3%;
         }
         #list{
             position: absolute;
@@ -106,21 +116,22 @@
             left:20px;
         }
     }
+
     @media (max-width: 640px) {
         #nav{
             width: 100%;
-            height:62px;
+            height:75px;
         }
         #button,#list{
             display: none;
         }
         #content{
-            height: 62px;
+            height: 75px;
         }
         #title{
-            top: 50%;
+            top: 20%;
             left: 10px;
-            line-height: 62px;
+            line-height: 75px;
         }
         #right{
             width: 100%;
@@ -150,9 +161,12 @@
 
     </div>
     <div id="right">
-        <div id="picture-top">
-            <div class="lunbo"><img src="yuebing.jpg" alt=""></div>
-            <div class="lunbo"><img src="coffee.jpg" alt=""></div>
+        <div id="container">
+            <div id="picture-top">
+                <div><img src="yuebing.jpg" alt=""></div>
+                <div><img src="coffee.jpg" alt=""></div>
+                <div><img src="yuebing.jpg" alt=""></div>
+            </div>
         </div>
         <div id="three">
             <div class="picture-middle"><img src="binfen.jpg" alt=""></div>
@@ -162,5 +176,47 @@
     </div>
 
 </div>
+
+<script src="../../jquery-1.12.4.js"></script>
+<script>
+
+    $(function () {
+        var clientW = document.getElementById('right').clientWidth;
+        $('#picture-top').css('width', function(){
+            return 3 * clientW;
+        });
+        window.onresize = function(){
+            clientW = document.getElementById('right').clientWidth;;
+            $('#picture-top img').css({
+                width: clientW
+            });
+            $('#picture-top').css('width', function(){
+                return 3 * clientW;
+            });
+        };
+
+        var nowIndex = 1;
+        var speed = 1500;
+        var play = function(){
+            if(nowIndex == 3){
+                nowIndex = 1;
+                $('#picture-top').css({
+                    transition: 'none',
+                    transform: 'translateX(0px)'
+                });
+                speed = 0;
+            }else{
+                $('#picture-top').css({
+                    transition: 'transform .8s ease',
+                    transform: 'translateX(-'+ clientW * (nowIndex++) +'px)'
+                });
+                speed = 1500;
+            }
+            clearTimeout(timer);
+            timer = setTimeout(play, speed);
+        };
+        var timer = setTimeout(play, speed);
+    })
+</script>
 </body>
 </html>
