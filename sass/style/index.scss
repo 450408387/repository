@@ -1,0 +1,23 @@
+$color:red;
+#div1{
+    background: #000;
+}
+#div2{
+    background:$color;
+}
+#div3{
+    background: #000;
+    .aa{
+        color: beige;
+        &:hover{
+            background:green;
+        }
+    }
+    &:hover{
+        background: #000;
+    }
+}
+
+#div999{
+    width:percentage(30/100);
+}
