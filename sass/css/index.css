@@ -1,26 +1,52 @@
 #div1 {
-  background: #000;
-}
+  background: #000; }
 
-#div2 {
-  background: red;
-}
+#div2, #div8 {
+  background: red; }
 
 #div3 {
-  background: #000;
-}
-#div3 .aa {
-  color: beige;
-}
-#div3 .aa:hover {
-  background: green;
-}
-#div3:hover {
-  background: #000;
-}
+  background: #000; }
+  #div3 .aa {
+    color: beige; }
+    #div3 .aa:hover {
+      background: green; }
+  #div3:hover {
+    background: #000; }
 
 #div999 {
-  width: 30%;
-}
+  width: 30%; }
+  #div999-container {
+    background: #f5e2a5; }
+  #div999-title {
+    color: #e5e5e5; }
+    #div999-title .xasda {
+      position: relative;
+      top: 0;
+      right: 0;
+      margin: 0;
+      left: 0;
+      bottom: 0; }
+
+#div928 {
+  color: red;
+  background: #fff;
+  float: left;
+  margin: 0;
+  top: 0;
+  position: absolute;
+  text-outline: 0 0 #000; }
+
+#div8 {
+  color: #d3e4a5; }
+
+#div4 {
+  background: #a6b7d8;
+  width: 100px;
+  height: 200px; }
+
+#div5 {
+  background: #c7d8e9;
+  width: 200px;
+  height: 2px; }
 
 /*# sourceMappingURL=index.css.map */

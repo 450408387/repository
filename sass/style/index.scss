@@ -20,4 +20,46 @@ $color:red;
 
 #div999{
     width:percentage(30/100);
+    &-container{
+        background: #f5e2a5;
+    }
+    &-title{
+        color:#e5e5e5;
+        .xasda{
+            position: relative;
+            top: 0;
+            right: 0;
+            margin: 0;
+            left: 0;
+            bottom: 0;
+        }
+    }
+}
+
+@mixin xx{
+    color:red;
+    background: #fff;
+    float:left;
+    margin: 0;
+    top: 0;
+}
+#div928{
+    @include xx;
+    position: absolute;
+    text-outline: 0 0 #000;
+}
+#div8{
+    @extend #div2;
+    color:#d3e4a5;
+}
+@mixin abc($clr,$w,$h){
+    background: $clr;
+    width: $w;
+    height:$h;
+}
+#div4{
+    @include abc(#a6b7d8,100px,200px);
+}
+#div5{
+    @include abc($w:200px,$clr:#c7d8e9,$h:2px)
 }
