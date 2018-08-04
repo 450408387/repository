@@ -46,7 +46,6 @@ $color:red;
 #div928{
     @include xx;
     position: absolute;
-    text-outline: 0 0 #000;
 }
 #div8{
     @extend #div2;
@@ -58,8 +57,13 @@ $color:red;
     height:$h;
 }
 #div4{
-    @include abc(#a6b7d8,100px,200px);
+    @include abc(#da58da,100px,200px);
 }
 #div5{
     @include abc($w:200px,$clr:#c7d8e9,$h:2px)
+}
+#div6{
+    background: rgb(17, 177, 57);
+    width: percentage(3 / 100);
+    length(5px,10px);
 }
