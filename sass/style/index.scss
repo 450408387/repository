@@ -65,5 +65,16 @@ $color:red;
 #div6{
     background: rgb(17, 177, 57);
     width: percentage(3 / 100);
-    length(5px,10px);
+    width:abs(-10px);
+}
+@for $i from 1 through 12{
+    .color-log#{$i}{
+        width:percentage($i/100);
+    }
+}
+$icons:a,b,c,d;
+@each $icon in $icons{
+    .sfy-#{$icon}{
+        background:url($icon+'.png');
+    }
 }
