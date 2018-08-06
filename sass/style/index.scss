@@ -78,3 +78,17 @@ $icons:a,b,c,d;
         background:url($icon+'.png');
     }
 }
+
+$map: (light: #fff, dark: #000);
+@function get-color($color){
+    @if(map-has-key($map, $color)){
+        @return  map-get($map, $color);
+    }@else if(){
+        @error '你传入的颜色不存在';
+        @return #ccc;
+    }
+}
+
+#div13{
+    background: get-color(light);
+}
