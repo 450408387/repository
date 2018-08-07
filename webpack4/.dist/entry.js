@@ -65,7 +65,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "352c20c786cb39abe1f7";
+/******/ 	var hotCurrentHash = "a5d1597f06c198a6a30c";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -260,7 +260,7 @@
 /******/ 				};
 /******/ 			});
 /******/ 			hotUpdate = {};
-/******/ 			var chunkId = "index";
+/******/ 			var chunkId = "entry";
 /******/ 			// eslint-disable-next-line no-lone-blocks
 /******/ 			{
 /******/ 				/*globals chunkId */
@@ -795,48 +795,14 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./author.json":
-/*!*********************!*\
-  !*** ./author.json ***!
-  \*********************/
-/*! exports provided: name, school, default */
-/***/ (function(module) {
-
-eval("module.exports = {\"name\":\"zyxf\",\"school\":\"heida\"};\n\n//# sourceURL=webpack:///./author.json?");
-
-/***/ }),
-
-/***/ "./src/css/index.css":
-/*!***************************!*\
-  !*** ./src/css/index.css ***!
-  \***************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("// removed by extract-text-webpack-plugin\n\n//# sourceURL=webpack:///./src/css/index.css?");
-
-/***/ }),
-
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\n\nvar _index = __webpack_require__(/*! ./css/index.css */ \"./src/css/index.css\");\n\nvar _index2 = _interopRequireDefault(_index);\n\nvar _index3 = __webpack_require__(/*! ./style/index.scss */ \"./src/style/index.scss\");\n\nvar _index4 = _interopRequireDefault(_index3);\n\nvar _author = __webpack_require__(/*! ../author.json */ \"./author.json\");\n\nvar _author2 = _interopRequireDefault(_author);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar oDiv = document.querySelector('#div');\noDiv.innerHTML = 'Hello Word';\n\n//# sourceURL=webpack:///./src/index.js?");
-
-/***/ }),
-
-/***/ "./src/style/index.scss":
-/*!******************************!*\
-  !*** ./src/style/index.scss ***!
-  \******************************/
-/*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("// removed by extract-text-webpack-plugin\n\n//# sourceURL=webpack:///./src/style/index.scss?");
+eval("throw new Error(\"Module build failed (from ./node_modules/babel-loader/lib/index.js):\\nReferenceError: [BABEL] C:\\\\Users\\\\Administrator\\\\WebstormProjects\\\\repository\\\\webpack4\\\\src\\\\index.js: Unknown option: base.preset. Check out http://babeljs.io/docs/usage/options/ for more information about options.\\n\\nA common cause of this error is the presence of a configuration options object without the corresponding preset name. Example:\\n\\nInvalid:\\n  `{ presets: [{option: value}] }`\\nValid:\\n  `{ presets: [['presetName', {option: value}]] }`\\n\\nFor more detailed information on preset configuration, please see https://babeljs.io/docs/en/plugins#pluginpresets-options.\\n    at Logger.error (C:\\\\Users\\\\Administrator\\\\WebstormProjects\\\\repository\\\\webpack4\\\\node_modules\\\\babel-core\\\\lib\\\\transformation\\\\file\\\\logger.js:41:11)\\n    at OptionManager.mergeOptions (C:\\\\Users\\\\Administrator\\\\WebstormProjects\\\\repository\\\\webpack4\\\\node_modules\\\\babel-core\\\\lib\\\\transformation\\\\file\\\\options\\\\option-manager.js:226:20)\\n    at OptionManager.init (C:\\\\Users\\\\Administrator\\\\WebstormProjects\\\\repository\\\\webpack4\\\\node_modules\\\\babel-core\\\\lib\\\\transformation\\\\file\\\\options\\\\option-manager.js:368:12)\\n    at File.initOptions (C:\\\\Users\\\\Administrator\\\\WebstormProjects\\\\repository\\\\webpack4\\\\node_modules\\\\babel-core\\\\lib\\\\transformation\\\\file\\\\index.js:212:65)\\n    at new File (C:\\\\Users\\\\Administrator\\\\WebstormProjects\\\\repository\\\\webpack4\\\\node_modules\\\\babel-core\\\\lib\\\\transformation\\\\file\\\\index.js:135:24)\\n    at Pipeline.transform (C:\\\\Users\\\\Administrator\\\\WebstormProjects\\\\repository\\\\webpack4\\\\node_modules\\\\babel-core\\\\lib\\\\transformation\\\\pipeline.js:46:16)\\n    at transpile (C:\\\\Users\\\\Administrator\\\\WebstormProjects\\\\repository\\\\webpack4\\\\node_modules\\\\babel-loader\\\\lib\\\\index.js:50:20)\\n    at Object.module.exports (C:\\\\Users\\\\Administrator\\\\WebstormProjects\\\\repository\\\\webpack4\\\\node_modules\\\\babel-loader\\\\lib\\\\index.js:173:20)\");\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ })
 
