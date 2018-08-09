@@ -11,6 +11,9 @@
             margin: 0;
             padding: 0;
         }
+        li{
+            list-style: none;
+        }
         #wrapper{
             float: left;
             margin-left: 200px;
@@ -25,7 +28,7 @@
         .checked{
             display: block;
         }
-        #wrapper div{
+        #wrapper .lei{
             float:left;
         }
     </style>
@@ -34,18 +37,19 @@
 <body>
     <div id="wrapper">
         <h1>todolist</h1>
+        <hr>
         名称：<input type="text">
         价格：<input type="text">
         <button>增加</button>
         <br>
         <input type="text"><button>查询</button>
         <br>
-        <input type="checkbox"><div :class="{red:isRed1}" @click="toggle1">衣服   100 </div><button @click="delete1" :class="checked">X</button><br>
-        <input type="checkbox"><div :class="{red:isRed2}" @click="toggle2">裤子    200</div><button  @click="delete2" :class="checked">X</button><br>
-        <input type="checkbox"><div :class="{red:isRed3}" @click="toggle3">鞋    300</div><button @click="delete3" :class="checked">X</button><br>
-        <input type="checkbox"><div :class="{red:isRed4}" @click="toggle4">iphoneX 8000</div><button @click="delete4" :class="checked">X</button><br>
-        <input type="checkbox"><div :class="{red:isRed5}" @click="toggle5">电脑  9000</div><button @click="delete5" :class="checked">X</button><br>
-        <button >删除选中</button>
+        <div><input type="checkbox"><div :class="{red:isRed1}" @click="toggle1" class="lei">衣服   100 </div><button @click="delete1" :class="checked">X</button><br></div>
+        <div><input type="checkbox"><div :class="{red:isRed2}" @click="toggle2" class="lei">裤子    200</div><button  @click="delete2" :class="checked">X</button><br></div>
+        <div><input type="checkbox"><div :class="{red:isRed3}" @click="toggle3" class="lei">鞋    300</div><button @click="delete3" :class="checked">X</button><br></div>
+        <div><input type="checkbox"><div :class="{red:isRed4}" @click="toggle4" class="lei">iPhoneX 8000</div><button @click="delete4" :class="checked">X</button><br></div>
+        <div><input type="checkbox"><div :class="{red:isRed5}" @click="toggle5" class="lei">电脑  9000</div><button @click="delete5" :class="checked">X</button><br></div>
+        <button @click="deleteAll">删除选中</button>
         <span >总价：</span>
     </div>
 
@@ -67,6 +71,24 @@
                 check3:false,
                 check4:false,
                 check5:false,
+                total:[
+                    {
+                        name:'衣服',
+                        price:100,
+                    },{
+                        name:'裤子',
+                        price:200,
+                    },{
+                        name:'鞋',
+                        price:300,
+                    },{
+                        name:'iPhoneX',
+                        price:8000,
+                    },{
+                        name:'电脑',
+                        price:9000,
+                    }
+                ]
             },
             compute:{
                
@@ -92,7 +114,13 @@
                 delete3(){},
                 delete4(){},
                 delete5(){},
+                deleteAll(){
+                    
+                }
             },
+            sum(p){
+                total.price+=total.price
+            }
         })
     </script>
 </body>
