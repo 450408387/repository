@@ -18,7 +18,6 @@ export default {
       this.$route.params.movieId
     }`;
     axios.get(url).then(res => {
-      console.log(res);
       this.detail = res.data;
     });
   }

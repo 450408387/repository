@@ -42,12 +42,6 @@ export default {
       let url2 = "https://api.myjson.com/bins/pb8vw";
       this.isLoading = true;
       axios.get(url2).then(res => {
-        console.log(
-          res.data.subjects.slice(
-            this.movieList.length,
-            this.movieList.length + 5
-          )
-        );
         // 由于接口不能用了，不得已采用假分页
         let getList = res.data.subjects.slice(
           this.movieList.length,
