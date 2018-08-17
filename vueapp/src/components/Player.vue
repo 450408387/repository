@@ -1,6 +1,5 @@
 <template>
     <div>
-        <!-- 专辑信息 -->
         <div class="album">
             <div class="album-mask" :style="{background: 'url('+albumImg+') no-repeat center/cover'}"></div>
             <div class="album-img">
@@ -21,7 +20,6 @@
             </div> 
         </div>
 
-        <!-- 歌单 -->
         <transition name="slide">
             <ul class="music-list" v-show="toggleList">
                 <li @click="selectMusic(index)" :class="['music-list-item', nowIndex == index?'selected': '']" v-for="(music,index) in musicList" :key="index">
@@ -31,7 +29,6 @@
             </ul>
         </transition>
         
-        <!-- 播放控件 -->
         <div class="audio">
             <audio ref="musicAudio" @play="isPlay=true" @pause="isPlay=false" class="audio-ctrl" :src="musicSrc" autoplay controls></audio>
         </div>
@@ -53,15 +50,15 @@ export default {
   props: ["musicList"],
   data() {
     return {
-      nowIndex: -1, // 当前选中歌曲的索引
+      nowIndex: -1, 
       albumImg:
-        "http://img3.imgtn.bdimg.com/it/u=1039246244,1205520727&fm=27&gp=0.jpg", //专辑的封面
-      albumTitle: "", //歌曲名称
-      albumAuthor: "", //歌曲歌手
-      isPlay: false, // 是否在播放
-      toggleList: true, //歌单的是否显示
-      musicSrc: "", // 歌曲的URL
-      lrcList: [] , // 歌词的数组 
+        "http://img3.imgtn.bdimg.com/it/u=1039246244,1205520727&fm=27&gp=0.jpg", 
+      albumTitle: "", 
+      albumAuthor: "", 
+      isPlay: false, 
+      toggleList: true, 
+      musicSrc: "", 
+      lrcList: [] ,  
       lrcIndex: -1
     };
   },
@@ -89,17 +86,14 @@ export default {
         this.nowIndex = 0;
       }
     },
-    // 解析歌词
+    
     parseLrc(text){
-      // 按照行分割
       let line = text.split('\n');
-      // 时间 和 歌词 分开
       line.forEach(elem => {
           let time = elem.match(/\[\d{2}:\d{2}.\d{2}\]/);
           if(time != null){
             let lrc = elem.split(time)[1];
             let timeReg = time[0].match(/(\d{2}):(\d{2}).(\d{2})/);
-            // 时间转成秒
             let time2Seconds = parseInt(timeReg[1]) * 60 + parseInt(timeReg[2]) + parseInt(timeReg[3]) / 1000;
             this.lrcList.push({
               time: time2Seconds,
@@ -118,7 +112,6 @@ export default {
       this.musicSrc = nowMusic.src;
       this.lrcList = [];
       this.lrcIndex = -1;
-      // 加载歌词
       axios.get('/' + nowMusic.lrc).then(res=>{
         this.parseLrc(res.data);
       });
@@ -127,16 +120,13 @@ export default {
   mounted(){
     let musicAudio = this.$refs.musicAudio;
     this.$refs.musicAudio.addEventListener('timeupdate', () => {
-        // console.log(musicAudio.currentTime);
         let currentTime = musicAudio.currentTime;
         this.lrcList.forEach((elem, index)=>{
-          //  console.log(elem.time, currentTime);
           if(Math.ceil(elem.time) >= currentTime &&  Math.floor(elem.time) < currentTime){
                 this.lrcIndex = index;
                 this.$refs.lrclist.scrollTop = this.lrcIndex * 25;
           }
         });
-        // console.log(this.lrcIndex);
     });
   }
 };
