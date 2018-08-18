@@ -1,0 +1,7 @@
+<!--pages/film/film.wxml-->
+<text>
+  <view wx:for="{{menuList}}" wx:key="{{item.id}}">
+    <image></image>
+  </view>
+  <text>{{item.title}}</text>
+</text>
