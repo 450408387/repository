@@ -5,121 +5,144 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <style>
-        *{
-            margin: 0;
-            padding: 0;
-        }
-        li{
-            list-style: none;
-        }
-        #wrapper{
-            float: left;
-            margin-left: 200px;
-            margin-top: 200px;
-        }
-        h1{
-            text-align: center;
-        }
         .red{
             background: #f00;
         }
-        .checked{
-            display: block;
-        }
-        #wrapper .lei{
-            float:left;
+        .add-form {
+            margin: 20px 0;
         }
     </style>
-
 </head>
 <body>
-    <div id="wrapper">
+
+    <div id="wrapper" class="text-center">
         <h1>todolist</h1>
         <hr>
-        名称：<input type="text">
-        价格：<input type="text">
-        <button>增加</button>
-        <br>
-        <input type="text"><button>查询</button>
-        <br>
-        <div><input type="checkbox"><div :class="{red:isRed1}" @click="toggle1" class="lei">衣服   100 </div><button @click="delete1" :class="checked">X</button><br></div>
-        <div><input type="checkbox"><div :class="{red:isRed2}" @click="toggle2" class="lei">裤子    200</div><button  @click="delete2" :class="checked">X</button><br></div>
-        <div><input type="checkbox"><div :class="{red:isRed3}" @click="toggle3" class="lei">鞋    300</div><button @click="delete3" :class="checked">X</button><br></div>
-        <div><input type="checkbox"><div :class="{red:isRed4}" @click="toggle4" class="lei">iPhoneX 8000</div><button @click="delete4" :class="checked">X</button><br></div>
-        <div><input type="checkbox"><div :class="{red:isRed5}" @click="toggle5" class="lei">电脑  9000</div><button @click="delete5" :class="checked">X</button><br></div>
-        <button @click="deleteAll">删除选中</button>
-        <span >总价：</span>
+
+        <form class="form-inline" @submit.prevent>
+                <div class="form-group">
+                    <input v-model.trim="keywords" type="text" class="form-control" placeholder="请输入商品名称">
+                </div>
+                <button @click="search" type="submit" class="btn btn-default glyphicon glyphicon-search">搜索</button>
+        </form>
+    
+        <form class="form-inline add-form" @submit.prevent>
+                <div class="form-group">
+                    <label for="product-name">商品名称</label>
+                    <input v-model.trim="productName" type="text" class="form-control" id="product-name" placeholder="请输入商品名称">
+                </div>
+                <div class="form-group">
+                    <label for="product-price">商品价格</label>
+                    <input v-model.number="productPrice"type="number" class="form-control" id="product-price" placeholder="请输入商品价格">
+                </div>
+                <button @click="add" type="submit" class="btn btn-default glyphicon glyphicon-plus">增加</button>
+        </form>
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <td>选择</td>
+                    <td>名称</td>
+                    <td>价格</td>
+                    <td>删除</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(product,index) in productList" @click="select(product)" :class="product.isRed? 'red' : '' ">
+                    <td>
+                        <input @click.stop type="checkbox" v-model="checkedList" :value="index">
+                    </td>
+                    <td>{{product.productName}}</td>
+                    <td>{{product.productPrice}}</td>
+                    <td>
+                        <button @click="del(index)" type="button" class="btn btn-warning glyphicon glyphicon-remove btn-xs"></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button @click="delChecked" type="button" class="btn btn-danger btn-xs">删除选中</button>
+                    </td>
+                    <td colspan="3">总价是{{total}}元</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 
     <script src="vue.js"></script>
-
     <script>
-        
         new Vue({
             el:'#wrapper',
             data:{
-                isRed1:false,
-                isRed2:false,
-                isRed3:false,
-                isRed4:false,
-                isRed5:false,
-
-                check1:false,
-                check2:false,
-                check3:false,
-                check4:false,
-                check5:false,
-                total:[
-                    {
-                        name:'衣服',
-                        price:100,
-                    },{
-                        name:'裤子',
-                        price:200,
-                    },{
-                        name:'鞋',
-                        price:300,
-                    },{
-                        name:'iPhoneX',
-                        price:8000,
-                    },{
-                        name:'电脑',
-                        price:9000,
-                    }
-                ]
-            },
-            compute:{
-               
+                productList:[{
+                    productName:'衣服',
+                    productPrice:100,
+                    isRed:false
+                },{
+                    productName:'裤子',
+                    productPrice:200,
+                    isRed:false
+                },{
+                    productName:'鞋',
+                    productPrice:300,
+                    isRed:false
+                },{
+                    productName:'iPhoneX',
+                    productPrice:7777,
+                    isRed:false
+                },{
+                    productName:'Dell',
+                    productPrice:8888,
+                    isRed:false
+                }],
+                checkedList:[],
+                productName:'',
+                productPrice:0,
+                keywords:''
             },
             methods:{
-                toggle1(){
-                    this.isRed1=!this.isRed1
+                select(product){
+                    product.isRed=!product.isRed,
+                    this.total+product.productPrice
                 },
-                toggle2(){
-                    this.isRed2=!this.isRed2
+                del(index){
+                    this.productList.splice(index,1)
                 },
-                toggle3(){
-                    this.isRed3=!this.isRed3
+                delChecked(){
+                    this.productList=this.productList.filter((elem,index)=>{
+                        if(!this.checkedList.includes(index)){
+                            return elem;
+                        }
+                    });
+                    this.checkedList=[];
                 },
-                toggle4(){
-                    this.isRed4=!this.isRed4
+                add(){
+                    this.productList.push({
+                        productName:this.productName,
+                        productPrice:this.productPrice,
+                        isRed:false
+                    });
+                    this.productName='';
+                    this.productPrice=0;
                 },
-                toggle5(){
-                    this.isRed5=!this.isRed5
-                },
-                delete1(){},
-                delete2(){},
-                delete3(){},
-                delete4(){},
-                delete5(){},
-                deleteAll(){
-                    
+                search(){
+                    this.productList=this.productList.filter(function(elem,index){
+                        if(elem.productName.includes(this.keywords)){
+                            return elem;
+                        }
+                    }.bind(this))
                 }
             },
-            sum(p){
-                total.price+=total.price
+            computed:{
+                total(){
+                    return this.productList.reduce((sum,elem)=>{
+                        if(elem.isRed){
+                            sum+=parseInt(elem.productPrice);
+                        }
+                        return sum;
+                    },0)
+                },
             }
         })
     </script>

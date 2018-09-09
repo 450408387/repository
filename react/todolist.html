@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="react.production.min.js"></script>
+    <script src="react-dom.production.min.js"></script>
+    <script src="browser.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+
+    <style>
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+    class Todolist extends React.Component{
+        constructor(props){
+            super(props);
+            this.state={
+
+            }
+            this.delete=this.delete.bind(this)
+            this.deleteall=this.delete.bind(this)
+            this.sum=this.sum.bind(this)
+        }
+        delete(){
+            this.setState({
+                
+            })
+        }
+        deleteall(){
+            this.setState({
+                
+            })
+        }
+        sum(){
+            this.setState({
+                
+            })
+        }
+        
+        render(){
+            return(
+                <div>
+                <form>
+                    <label>
+                        待办事项:<input type="text" name="name" placeholder="待办事项"/>
+                    </label>
+                    <label>
+                        待办时间:<input type="text" name="name" placeholder="待办时间"/>
+                    </label>
+                    <label>
+                        预计用时:<input type="text" name="name" placeholder="预计用时"/>
+                    </label>
+                    <input type="submit" value="添加" />
+                </form>
+                <table className="table table-striped">
+                    <thead>
+                        <tr onClick="">
+                            <td>#</td>
+                            <td>待办事项</td>
+                            <td>待办时间</td>
+                            <td>预计用时</td>
+                            <td>操作</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr onClick="">
+                            <td><input type="checkbox"/></td>
+                            <td>上课</td>
+                            <td>2018-9-14</td>
+                            <td>2</td>
+                            <td><button onClick="">删除</button></td>
+                        </tr>
+                        <tr onClick="">
+                            <td><input type="checkbox"/></td>
+                            <td>吃饭</td>
+                            <td>2018-9-14</td>
+                            <td>2</td>
+                            <td><button onClick="">删除</button></td>
+                        </tr>
+                        <tr onClick="">
+                            <td><input type="checkbox"/></td>
+                            <td>午休</td>
+                            <td>2018-9-14</td>
+                            <td>2</td>
+                            <td><button onClick="">删除</button></td>
+                        </tr>
+                        <tr onClick="">
+                            <td><input type="checkbox"/></td>
+                            <td>篮球</td>
+                            <td>2018-9-14</td>
+                            <td>2</td>
+                            <td><button onClick="">删除</button></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"/></td>
+                            <td>聚会</td>
+                            <td>2018-9-14</td>
+                            <td>2</td>
+                            <td><button onClick="">删除</button></td>
+                        </tr>
+                        <tr onClick="">
+                            <td><input type="checkbox"/></td>
+                            <td>上课</td>
+                            <td>2018-9-14</td>
+                            <td>2</td>
+                            <td><button onClick="">删除</button></td>
+                        </tr>
+                        <tr>
+                            <td><button onClick="">删除选中</button></td>
+                            <td>总共用时：0</td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+            )
+        }
+    }
+    ReactDOM.render(
+      <Todolist/>,
+      document.getElementById('root')
+    );
+    </script>
+</body>
+
+</html>
