@@ -1,0 +1,11 @@
+.nav-bar .am-navbar{
+    background-color: #06c1ae;
+    flex:4;
+}
+.nav-bar .am-navbar-title form{
+    width: 100%;
+    background: #06c1ae;
+}
+.nav-bar .am-navbar-title{
+    flex: 4 4;
+}
